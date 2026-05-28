@@ -217,14 +217,18 @@ def kpi_card(label: str, value: str, delta: str = "", color: str = GOLD):
 
 def art_image_banner(url: str, height: int = 220, overlay_text: str = "", overlay_sub: str = ""):
     """Art banner — shows image if available, falls back to CSS gradient."""
-    text_block = f"""
-        <div style="position:absolute;bottom:24px;left:32px;z-index:2;">
-            <div style="color:white;font-size:26px;font-weight:900;
-            font-family:'Playfair Display',serif;text-shadow:0 2px 12px rgba(0,0,0,0.9);">
-                {overlay_text}</div>
-            <div style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:4px;
-            text-shadow:0 1px 6px rgba(0,0,0,0.8);">{overlay_sub}</div>
-        </div>""" if overlay_text else ""
+    if overlay_text:
+        text_block = (
+            '<div style="position:absolute;bottom:24px;left:32px;z-index:2;">'
+            '<div style="color:white;font-size:26px;font-weight:900;'
+            "font-family:'Playfair Display',serif;text-shadow:0 2px 12px rgba(0,0,0,0.9);"
+            '>'  + overlay_text + '</div>'
+            '<div style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:4px;'
+            'text-shadow:0 1px 6px rgba(0,0,0,0.8);">' + overlay_sub + '</div>'
+            '</div>'
+        )
+    else:
+        text_block = ""
     st.markdown(f"""
     <div style="position:relative;width:100%;height:{height}px;
     border-radius:14px;overflow:hidden;margin-bottom:24px;
