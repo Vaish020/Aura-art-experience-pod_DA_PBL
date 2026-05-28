@@ -65,7 +65,7 @@ def render(df1, df2, arm, wide):
     })
 
     art_image_banner(
-        IMAGES["india_art"], height=170,
+        IMAGES["india_art"], height=100,
         overlay_text="Time Series + ARIMA Forecasting",
         overlay_sub="AURA monthly demand & revenue projection"
     )

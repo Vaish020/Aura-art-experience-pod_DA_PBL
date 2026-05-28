@@ -23,7 +23,7 @@ def render(df1, df2, arm, wide, km_model, df_clustered, km_scaler,
     )
 
     art_image_banner(
-        IMAGES["colour_palette"], height=180,
+        IMAGES["colour_palette"], height=100,
         overlay_text="Customer Persona Segmentation",
         overlay_sub="K-Means · Silhouette-optimised · 6 distinct AURA personas"
     )

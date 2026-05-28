@@ -21,7 +21,7 @@ def render(df1, df2, arm, wide):
     )
 
     art_image_banner(
-        IMAGES["art_supplies"], height=200,
+        IMAGES["art_supplies"], height=100,
         overlay_text="Descriptive Analysis",
         overlay_sub="Who are AURA's potential customers? · 2,000 Indian respondents"
     )

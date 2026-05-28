@@ -22,7 +22,7 @@ def render(df1, df2, arm, wide):
     )
 
     art_image_banner(
-        IMAGES["paint_brushes"], height=170,
+        IMAGES["paint_brushes"], height=100,
         overlay_text="Association Rule Mining",
         overlay_sub="Apriori · What experiences bundle together?"
     )

@@ -14,8 +14,7 @@ from aura_theme import (GOLD, TEAL, ORANGE, ROSE, INDIGO, MUTED,
 def render(df1, df2, arm, wide, clf_results, reg_results, best_k, silhouettes):
 
     # ── HERO BANNER ──────────────────────────────────────────
-    art_image_banner(
-        IMAGES["hero_paint"], height=280,
+    art_image_banner(IMAGES["hero_paint"], height=200,
         overlay_text="AURA Art Experience Pod",
         overlay_sub="India's first subscription-based art experience pod network · Data Analytics Dashboard"
     )
@@ -117,11 +116,11 @@ def render(df1, df2, arm, wide, clf_results, reg_results, best_k, silhouettes):
 
     c_img1, c_img2 = st.columns(2)
     with c_img1:
-        art_image_banner(IMAGES["urban_art"], height=180,
+        art_image_banner(IMAGES["urban_art"], height=120,
                           overlay_text="India's Wellness-Creativity Gap",
                           overlay_sub="Rising stress · Scarce accessible art spaces")
     with c_img2:
-        art_image_banner(IMAGES["studio"], height=180,
+        art_image_banner(IMAGES["studio"], height=120,
                           overlay_text="The AURA Pod Concept",
                           overlay_sub="Mall · Co-working · Transit hubs · ₹200–₹1,200/session")
 

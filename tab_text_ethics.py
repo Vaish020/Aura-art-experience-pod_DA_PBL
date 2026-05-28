@@ -85,7 +85,7 @@ def render(df1, df2, arm, wide):
     )
 
     art_image_banner(
-        IMAGES["calligraphy"], height=170,
+        IMAGES["calligraphy"], height=100,
         overlay_text="Text Mining + AI Ethics & ESG",
         overlay_sub="NLP Sentiment · Responsible Analytics"
     )

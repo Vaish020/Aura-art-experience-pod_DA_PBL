@@ -34,7 +34,7 @@ def render(df1, df2, arm, wide):
     )
 
     art_image_banner(
-        IMAGES["pottery"], height=170,
+        IMAGES["pottery"], height=100,
         overlay_text="RFM Analysis + Hierarchical Clustering",
         overlay_sub="Recency · Frequency · Monetary · Dendrogram"
     )

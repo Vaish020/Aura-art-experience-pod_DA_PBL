@@ -33,7 +33,7 @@ def render(df1, df2, arm, wide):
     )
 
     art_image_banner(
-        IMAGES["sketching"], height=170,
+        IMAGES["sketching"], height=100,
         overlay_text="Decision Tree Analysis",
         overlay_sub=" Interpretable classification rules for AURA"
     )

@@ -23,7 +23,7 @@ def render(df1, df2, arm, wide, reg_models, reg_results, reg_feat_imp,
     )
 
     art_image_banner(
-        IMAGES["acrylic"], height=170,
+        IMAGES["acrylic"], height=100,
         overlay_text="WTP Regression — Session Pricing Prediction",
         overlay_sub="What will each customer pay? · RF · GBM · Linear Regression"
     )
