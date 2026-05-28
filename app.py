@@ -50,7 +50,7 @@ with st.sidebar:
 
     tabs_config = [
         ("🏠", "Executive Summary",      "KPIs · Business Overview"),
-        ("📊", "Overview",               "Descriptive Analysis"),
+        ("📊", "Descriptive Analysis",   "Demographics · Art Preferences · Stress Profiles"),
         ("🔍", "Diagnostic",             "Why Customers Convert"),
         ("🌳", "Decision Tree",          "Classification Rules"),
         ("🧩", "Clustering",             "K-Means Segmentation"),
@@ -126,7 +126,7 @@ if tab_name == "Executive Summary":
     import tab_summary
     tab_summary.render(df1, df2, arm, wide, clf_results, reg_results, best_k, silhouettes)
 
-elif tab_name == "Overview":
+elif tab_name == "Descriptive Analysis":
     import tab_overview
     tab_overview.render(df1, df2, arm, wide)
 
