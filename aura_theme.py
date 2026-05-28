@@ -229,25 +229,44 @@ def art_image_banner(url: str, height: int = 220, overlay_text: str = "", overla
         )
     else:
         text_block = ""
-    st.markdown(
-        '<div style="position:relative;width:100%;height:' + str(height) + 'px;'
-        'border-radius:14px;overflow:hidden;margin-bottom:24px;'
-        'box-shadow:0 8px 32px rgba(0,0,0,0.5);'
-        'background:linear-gradient(135deg,#1a0a0f 0%,#0d1a14 30%,#0a0d1a 60%,#1a0a10 100%);'
-        'position:relative;">'
-        '<div style="position:absolute;inset:0;'
-        'background:linear-gradient(135deg,'
-        'rgba(240,192,64,0.18) 0%,rgba(62,207,168,0.1) 40%,rgba(136,120,240,0.15) 100%);'
-        'border-radius:14px;"></div>'
-        '<div style="position:absolute;top:0;left:0;right:0;bottom:0;'
-        'background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.1) 0%,transparent 50%),'
-        'radial-gradient(circle at 80% 20%,rgba(62,207,168,0.1) 0%,transparent 50%),'
-        'radial-gradient(circle at 60% 80%,rgba(240,120,64,0.08) 0%,transparent 50%);'
-        'border-radius:14px;"></div>'
-        + text_block +
-        '</div>',
-        unsafe_allow_html=True
-    )
+    # Use st.image for the photo (works on Streamlit Cloud), overlay text below
+    try:
+        import requests as _req
+        r = _req.get(url, timeout=3)
+        if r.status_code == 200:
+            st.markdown(
+                '<div style="position:relative;width:100%;border-radius:14px;'
+                'overflow:hidden;margin-bottom:8px;box-shadow:0 8px 32px rgba(0,0,0,0.5);">',
+                unsafe_allow_html=True
+            )
+            st.image(r.content, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+        else:
+            raise Exception("non-200")
+    except Exception:
+        # Fallback: pure CSS gradient banner
+        st.markdown(
+            '<div style="width:100%;height:' + str(height) + 'px;'
+            'border-radius:14px;margin-bottom:8px;'
+            'box-shadow:0 8px 32px rgba(0,0,0,0.5);'
+            'background:linear-gradient(135deg,#1a0a0f 0%,#0d1a14 30%,#0a0d1a 60%,#1a0a10 100%);'
+            'background-image:radial-gradient(ellipse at 20% 50%,rgba(240,192,64,0.2) 0%,transparent 60%),'
+            'radial-gradient(ellipse at 80% 20%,rgba(62,207,168,0.15) 0%,transparent 60%),'
+            'radial-gradient(ellipse at 60% 80%,rgba(136,120,240,0.15) 0%,transparent 60%);'
+            '"></div>',
+            unsafe_allow_html=True
+        )
+    # Overlay text always shown below banner
+    if overlay_text:
+        st.markdown(
+            '<div style="margin:-8px 0 16px 8px;">'
+            '<div style="color:#f5ede8;font-size:22px;font-weight:900;'
+            "font-family:'Playfair Display',serif;"
+            '">' + overlay_text + '</div>'
+            '<div style="color:rgba(245,237,232,0.6);font-size:13px;margin-top:3px;">'
+            + overlay_sub + '</div></div>',
+            unsafe_allow_html=True
+        )
 
 
 def art_image_grid(images: list, captions: list = None, height: int = 150):
