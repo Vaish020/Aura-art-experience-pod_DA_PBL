@@ -229,26 +229,25 @@ def art_image_banner(url: str, height: int = 220, overlay_text: str = "", overla
         )
     else:
         text_block = ""
-    st.markdown(f"""
-    <div style="position:relative;width:100%;height:{height}px;
-    border-radius:14px;overflow:hidden;margin-bottom:24px;
-    box-shadow:0 8px 32px rgba(0,0,0,0.5);
-    background:linear-gradient(135deg,#1a0a0f 0%,#0d1a14 30%,#0a0d1a 60%,#1a0a10 100%);">
-        <img src="{url}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;"
-             onerror="this.style.display='none'"/>
-        <div style="position:absolute;inset:0;
-        background:linear-gradient(135deg,
-            rgba(240,192,64,0.15) 0%,
-            rgba(62,207,168,0.08) 40%,
-            rgba(136,120,240,0.12) 100%);
-        z-index:1;border-radius:14px;"></div>
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;
-        background-image:radial-gradient(circle at 20% 50%, rgba(240,192,64,0.08) 0%, transparent 50%),
-                         radial-gradient(circle at 80% 20%, rgba(62,207,168,0.08) 0%, transparent 50%),
-                         radial-gradient(circle at 60% 80%, rgba(240,120,64,0.06) 0%, transparent 50%);"></div>
-        {text_block}
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        '<div style="position:relative;width:100%;height:' + str(height) + 'px;'
+        'border-radius:14px;overflow:hidden;margin-bottom:24px;'
+        'box-shadow:0 8px 32px rgba(0,0,0,0.5);'
+        'background:linear-gradient(135deg,#1a0a0f 0%,#0d1a14 30%,#0a0d1a 60%,#1a0a10 100%);'
+        'position:relative;">'
+        '<div style="position:absolute;inset:0;'
+        'background:linear-gradient(135deg,'
+        'rgba(240,192,64,0.18) 0%,rgba(62,207,168,0.1) 40%,rgba(136,120,240,0.15) 100%);'
+        'border-radius:14px;"></div>'
+        '<div style="position:absolute;top:0;left:0;right:0;bottom:0;'
+        'background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.1) 0%,transparent 50%),'
+        'radial-gradient(circle at 80% 20%,rgba(62,207,168,0.1) 0%,transparent 50%),'
+        'radial-gradient(circle at 60% 80%,rgba(240,120,64,0.08) 0%,transparent 50%);'
+        'border-radius:14px;"></div>'
+        + text_block +
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 
 def art_image_grid(images: list, captions: list = None, height: int = 150):
