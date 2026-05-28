@@ -6,7 +6,7 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 from aura_theme import (GOLD, TEAL, ORANGE, ROSE, INDIGO, MUTED,
-                        SURFACE, SURFACE2, INK, PALETTE,
+                        SURFACE, SURFACE2, SURFACE3, INK, PALETTE,
                         page_header, section_header, info_card,
                         art_image_banner, colour_palette_strip, IMAGES)
 from aura_data import encode_features, REG_FEATURES, ORDINAL_MAPS
